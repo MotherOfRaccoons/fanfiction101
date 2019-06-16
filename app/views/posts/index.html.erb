@@ -30,10 +30,9 @@
         </div>
       <% end %>
 
-      <nav class="blog-pagination">
-        <a class="btn btn-outline-primary" href="#">Older</a>
-        <a class="btn btn-outline-secondary disabled" href="#" tabindex="-1" aria-disabled="true">Newer</a>
-      </nav>
+      <div class="container pagination justify-content-center" >
+        <%= paginate @posts, theme: 'twitter-bootstrap-4'%>
+      </div>
 
   </div>
 </main>
