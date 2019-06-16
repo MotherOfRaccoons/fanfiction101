@@ -4,7 +4,7 @@
     <p>
       <strong><%= comment.username %> - <%= comment.created_at.to_formatted_s(:short) %></strong>
 
-      <% if current_user && current_user.admin %>
+      <% if current_user && (current_user.admin || current_user.id == comment.user_id) %>
         <%= link_to '[X]', [comment.post, comment],
                     class: "float-right",
                     method: :delete,
