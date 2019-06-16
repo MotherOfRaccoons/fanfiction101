@@ -1,0 +1,20 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light rounded mb-4">
+  <a class="navbar-brand" href="#">Fanfics101</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExample09">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to "Home", home_path %>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-md-0">
+      <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+    </form>
+    <ul class="nav navbar-nav mx-2 my-2 my-sm-0">
+      <li><%=button_to "Create post", new_post_path, class: "btn btn-outline-success ", method: 'get' %></li>
+    </ul>
+  </div>
+</nav>

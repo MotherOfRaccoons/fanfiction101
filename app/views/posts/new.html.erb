@@ -1,0 +1,21 @@
+<h1>New post</h1>
+<%= form_for :post, url: posts_path, html: {autocomplete: 'off'}  do |f| %>
+  <% if @post.errors.any? %>
+    <% @post.errors.full_messages.each do |msg| %>
+      <div class="alert alert-danger"><%= msg %></div>
+    <% end %>
+  <% end %>
+
+  <p>
+    <%= f.label :title %>
+    <%= f.text_field(:title, {:class => 'form-control'}) %>
+  </p>
+
+  <p>
+    <%= f.label :synopsis %>
+    <%= f.text_area(:synopsis, :class => 'form-control') %>
+  </p>
+
+  <p><%= f.submit :class => 'btn btn-success' %></p>
+
+<% end %>

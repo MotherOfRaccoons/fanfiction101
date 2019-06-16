@@ -1,0 +1,59 @@
+<!--<table>-->
+
+<!--    <style>-->
+<!--      .fading {-->
+<!--        position: relative;-->
+<!--        max-height: 3.6em; /* 3 lines */-->
+<!--      }-->
+<!--      .fading:after {-->
+<!--        content: "";-->
+<!--        position: absolute;-->
+<!--        bottom: 0;-->
+<!--        right: 0;-->
+<!--        width: 70%;-->
+<!--        height: 1.2em;-->
+<!--        background: linear-gradient(to right, rgba(255, 9, 9, 0), rgba(255, 255, 255, 1) 90%);-->
+<!--      }-->
+<!--    </style>-->
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="/app/assets/stylesheets/posts.css" rel="stylesheet">
+</head>
+
+<body>
+
+<style>
+  .line-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+  }
+</style>
+
+<main role="main" class="container">
+    <div class="blog-main " align="center">
+
+      <% @posts.each do |post| %>
+        <div class="blog-main " align="center">
+          <div class="blog-post">
+            <h2 class="blog-post-title"><%= post.title %></h2>
+            <p class="blog-post-meta"><%= post.created_at.to_formatted_s(:short)%> by <i>Nobody</i></p>
+            <p class="line-clamp" style="overflow: hidden"><%= post.synopsis %></p>
+            <%= link_to "Read more", post_path(post), class: 'btn btn-outline-primary btn-block' %>
+          </div><!-- /.blog-post -->
+        </div>
+      <% end %>
+
+      <nav class="blog-pagination">
+        <a class="btn btn-outline-primary" href="#">Older</a>
+        <a class="btn btn-outline-secondary disabled" href="#" tabindex="-1" aria-disabled="true">Newer</a>
+      </nav>
+
+  </div>
+</main>
+</body>
+</html>
