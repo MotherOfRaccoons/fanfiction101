@@ -3,12 +3,14 @@
   <div class="card card-body bg-light my-3">
     <p>
       <strong><%= comment.username %> - <%= comment.created_at.to_formatted_s(:short) %></strong>
-      <%= link_to '[X]', [comment.post, comment],
-                  class: "float-right",
-                  method: :delete,
-                  data: { confirm: 'Are you sure?' } %>
-    </p>
 
+      <% if current_user && current_user.admin %>
+        <%= link_to '[X]', [comment.post, comment],
+                    class: "float-right",
+                    method: :delete,
+                    data: { confirm: 'Are you sure?' } %>
+      <% end %>
+    </p>
     <p><%= comment.body %></p>
 
   </div>
