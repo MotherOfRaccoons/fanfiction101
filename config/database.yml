@@ -47,8 +47,12 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+
 production:
-  <<: *default
-  database: fanfiction101_production
-  username: fanfiction101
-  password: <%= ENV['FANFICTION101_DATABASE_PASSWORD'] %>
+  adapter: mysql2
+  url: <%= ENV['DATABASE_URL'] %>
+#production:
+#  <<: *default
+#  database: fanfiction101_production
+#  username: fanfiction101
+#  password: <%= ENV['FANFICTION101_DATABASE_PASSWORD'] %>
