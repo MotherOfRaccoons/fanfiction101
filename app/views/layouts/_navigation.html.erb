@@ -16,6 +16,7 @@
     <ul class="nav navbar-nav mx-2 my-2 my-sm-0">
       <% if current_user %>
         <li><%= button_to "Add post", new_post_path, class: 'btn btn-outline-success mx-1', method: 'get' %></li>
+        <li><%= button_to "Edit profile", edit_user_registration_path, type: 'button', class: 'btn btn-light mx-1', method: 'get' %></li>
         <li><%= button_to "Sign out", destroy_user_session_path, type: 'button', class: 'btn btn-light mx-1', method: 'delete' %></li>
       <% else %>
         <li><%= button_to "Sign in", new_user_session_path, type: 'button', class: 'btn btn-light mx-1', method: 'get' %></li>

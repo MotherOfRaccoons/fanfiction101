@@ -2,7 +2,10 @@
 <% @post.comments.actual.reverse_each do |comment| %>
   <div class="card card-body bg-light my-3">
     <p>
-      <strong><%= comment.username %> - <%= comment.created_at.to_formatted_s(:short) %></strong>
+      <strong>
+        <em><%= comment.user_id.present? ? User.find(comment.user_id).email : '[deleted]'%></em> -
+        <%= comment.created_at.to_formatted_s(:short) %>
+      </strong>
 
       <% if current_user && (current_user.admin || current_user.id == comment.user_id) %>
         <%= link_to '[X]', [comment.post, comment],
