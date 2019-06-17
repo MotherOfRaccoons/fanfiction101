@@ -16,7 +16,27 @@
   }
 </style>
 
+<div class="dropdown">
+  <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Sort by
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+    <%= link_to "Title",{ :sort => "title"}, class: 'dropdown-item' %>
+    <%= link_to "Synopsis",{ :sort => "synopsis"}, class: 'dropdown-item' %>
+    <%= link_to "Oldest",{ :sort => "created_at asc"}, class: 'dropdown-item' %>
+    <%= link_to "Newest",{ :sort => "created_at desc"}, class: 'dropdown-item' %>
+  </div>
+
+</div>
+
 <main role="main" class="container">
+
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="#">Regular link</a>
+    <a class="dropdown-item active" href="#">Active link</a>
+    <a class="dropdown-item" href="#">Another link</a>
+  </div>
+
     <div class="blog-main " align="center">
 
       <% @posts.each do |post| %>
@@ -26,7 +46,7 @@
             <p class="blog-post-meta"><%= post.created_at.to_formatted_s(:short)%> by <i><%= post.user_id.present? ? User.find(post.user_id).email : '[deleted]'%></i></p>
             <p class="line-clamp" style="overflow: hidden"><%= post.synopsis %></p>
             <%= link_to "Read more", post_path(post), class: 'btn btn-outline-primary btn-block' %>
-          </div><!-- /.blog-post -->
+          </div>
         </div>
       <% end %>
 

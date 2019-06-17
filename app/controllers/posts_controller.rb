@@ -2,7 +2,13 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
 
   def index
-    @posts = Post.order(:title).page(params[:page])
+    sort_param = if ['title', 'synopsis', 'created_at asc', 'created_at desc'].include?(params[:sort])
+                   params[:sort]
+                 else
+                   'title'
+                 end
+
+    @posts = Post.order(sort_param).page(params[:page])
   end
 
   def show
